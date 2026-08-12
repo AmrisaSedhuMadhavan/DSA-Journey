@@ -3,4 +3,11 @@ class Solution:
         """
         Do not return anything, modify matrix in-place instead.
         """
-        matrix[:]=[row[::-1] for row in zip(*matrix)]
+        n=len(matrix)
+        m=len(matrix[0])
+        ans = [[0]*m for i in range(n)]
+        for i in range(n):
+            for j in range(m):
+                ans[j][n-1-i]=matrix[i][j]
+        
+        matrix[:] = ans
